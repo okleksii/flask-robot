@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div>Lessons:</div>
+    <ul>
+        {% for lesson in course.lessons %}
+            <li>Name: {{ lesson.name }}, begin: {{ lesson.begin_at }}</li>
+        {% endfor %}
+    </ul>
+    <div class="bottom-block">
+        <button><a href="{{ url_for('create_course_lesson', course_id=course.id) }}">Add a lesson</a></button>
+    </div>
+{% endblock %}

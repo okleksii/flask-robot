@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>{{ course.name }}</h1>
+    <div>Course details: {{ course.description }}</div>
+    <div>Registered users:</div>
+    <div>
+        <ul>
+            {% for user in course.users %}
+                <li>{{ user.first_name }} {{ user.last_name }}</li>
+            {% else %}
+                <li>No registered users</li>
+            {% endfor %}
+        </ul>
+        <div>
+            <button><a href="">Register on course</a></button>
+        </div>
+
+        <div>
+            <button><a href="{{ url_for("course_lessons", course_id=course.id) }}">See lessons</a></button>
+        </div>
+    </div>
+{% endblock %}

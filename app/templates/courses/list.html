@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Courses list</h1>
+    <ul>
+        {% for course in courses %}
+            <li>Course: <a href="{{ url_for('course_detail', course_id=course.id) }}">{{ course.name }}</a>, Mentor: {{ course.mentor.first_name }} {{ course.mentor.last_name }}</li>
+        {% endfor %}
+    </ul>
+    <div class="bottom-block">
+        <button><a href="{{ url_for('create_course') }}">Create a new course</a></button>
+    </div>
+
+{% endblock %}

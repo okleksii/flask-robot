@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form action="" method="POST" novalidate>
+        {{ form.csrf_token }}
+        {{ form.name.label }} {{ form.name() }}
+        <br>
+        {{ form.description.label }} {{ form.description() }}
+        <br>
+        {{ form.begin_at.label }} {{ form.begin_at() }}
+        <br>
+        {{ form.end_at.label }} {{ form.end_at() }}
+        <br>
+        <input type="submit" value="Create course">
+    </form>
+    {% if form.errors %}
+        <p>{{ form.errors }}</p>
+    {% endif %}
+{% endblock %}
