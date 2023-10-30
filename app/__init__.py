@@ -17,3 +17,6 @@ migrate = Migrate(app, db, render_as_batch=True)
 def custom_404(exc):
     return "<h1>Custom 404</h1>", exc.code
 
+from app.user import views
+from app.course import views
+from app.main import views
